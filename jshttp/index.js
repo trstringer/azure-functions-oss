@@ -1,17 +1,19 @@
 module.exports = function (context, req) {
-	context.log('JavaScript HTTP trigger function processed a request.');
+  context.log('... Entry point to HTTP trigger');
 
-	if (req.query.name || (req.body && req.body.name)) {
-		res = {
-			// status: 200, /* Defaults to 200 */
-			body: "Hello " + (req.query.name || req.body.name)
-		};
-	}
-	else {
-		res = {
-			status: 400,
-			body: "Please pass a name on the query string or in the request body"
-		};
-	}
-	context.done(null, res);
+  if (req.query.message) {
+    context.log('... message found in query string');
+    res = {
+      body: `Your message is "${req.query.message}"`
+    };
+  }
+  else {
+    context.log('... message not found in query string');
+    res = {
+      status: 400,
+      body: 'Please pass a message in via the query string'
+    };
+  }
+
+  context.done(null, res);
 };
