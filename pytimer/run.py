@@ -1,9 +1,9 @@
 """Python Azure Function sample"""
 
-import http.client
+import httplib
 import json
 
-connection = http.client.HTTPConnection('quotesondesign.com')
+connection = httplib.HTTPConnection('quotesondesign.com')
 connection.request(
     'GET',
     '/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
