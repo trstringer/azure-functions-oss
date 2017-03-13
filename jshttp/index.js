@@ -4,7 +4,7 @@ module.exports = function (context, req) {
   if (req.query.message) {
     context.log('... message found in query string');
     res = {
-      body: `Your message is "${req.query.message}"`
+      body: `Your message is :: ${req.query.message}`
     };
   }
   else {
