@@ -1,3 +1,4 @@
+# pylint: skip-file
 """Python Azure Function sample"""
 
 import httplib
